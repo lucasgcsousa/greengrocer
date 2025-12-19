@@ -1,1 +1,36 @@
-flutter/ephemeral
+# Flutter / Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+build/
+
+# IDEs
+.idea/
+.vscode/
+*.iml
+
+# Android
+android/.gradle/
+android/local.properties
+android/**/key.properties
+android/**/keystore.jks
+
+# iOS
+ios/Flutter/ephemeral/
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/flutter_export_environment.sh
+
+# Desktop
+windows/flutter/ephemeral/
+linux/flutter/ephemeral/
+macos/Flutter/ephemeral/
+
+# Web
+web/build/
+
+# Env
+.env
+.env.*
