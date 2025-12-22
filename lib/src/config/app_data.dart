@@ -1,6 +1,7 @@
 
 import 'package:greengrocer/src/models/cart_item_model.dart';
 import 'package:greengrocer/src/models/item_model.dart';
+import 'package:greengrocer/src/models/order_model.dart';
 import 'package:greengrocer/src/models/user_model.dart';
 
 ItemModel apple = ItemModel(
@@ -101,3 +102,62 @@ List<ItemModel> items = [
     name: 'Lucas',
     password: '123456l',
     );
+
+    List<OrderModel> orders = [
+      
+      //Pedido 01
+      OrderModel(
+        copyAndPaste: 'trgb681gt68g196t81bv96',
+        createdDateTime: DateTime.parse(
+          '2021-06-08 10:00:10.458',
+          ),
+        overdueDateTime: DateTime.parse(
+          '2021-06-08 11:00:10.458',
+          ),
+        id: '68tv16t1g635rst1g69',
+        status: 'pending_payment',
+        total: 11.0,
+        items: [
+          CartItemModel(
+            item: apple,
+            quantity: 3,
+          ),
+           CartItemModel(
+            item: mango,
+            quantity: 2,
+          ),
+           CartItemModel(
+            item: guava,
+            quantity: 4,
+          ),
+           CartItemModel(
+            item: grape,
+            quantity: 1,
+          ),
+        ],
+      ),
+
+      //Pedido 02
+      OrderModel(
+        copyAndPaste: 'trgb681gt68g196t81bv96',
+        createdDateTime: DateTime.parse(
+          '2021-06-08 12:00:10.458',
+          ),
+        overdueDateTime: DateTime.parse(
+          '2021-06-08 13:00:10.458',
+          ),
+        id: '68tv16t1g635rst1g69',
+        status: 'refunded',
+        total: 11.0,
+        items: [
+          CartItemModel(
+            item: kiwi,
+            quantity: 5,
+          ),
+           CartItemModel(
+            item: papaya,
+            quantity: 2,
+          ),
+        ],
+      ),
+    ];
