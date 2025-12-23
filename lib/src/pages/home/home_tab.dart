@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:greengrocer/src/config/custom_colors.dart';
+import 'package:greengrocer/src/pages/common_widgets/app_name_widget.dart';
 import 'package:greengrocer/src/pages/home/components/category_tile.dart';
 import 'package:greengrocer/src/config/app_data.dart'as appData;
 import 'package:greengrocer/src/pages/home/components/item_tile.dart';
@@ -24,28 +25,7 @@ class _HomeTabState extends State<HomeTab> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: true,
-        title:  Text.rich(
-                      TextSpan(
-                        style: const TextStyle(
-                          fontSize: 30,
-                        ),
-                        children: [
-                           TextSpan(
-                            text: 'Green',
-                            style: TextStyle(
-                              color: CustomColors.customSwatchColor,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          TextSpan(
-                            text: 'grocer',
-                            style: TextStyle(
-                              color: CustomColors.customContrastColor,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+        title: AppNameWidget(),
 
         actions: [
           Padding(
@@ -66,10 +46,10 @@ class _HomeTabState extends State<HomeTab> {
                   ),
                 ),
                 child: Icon(
-                    Icons.shopping_cart,
-                    color: CustomColors.customSwatchColor,
-                  ), 
+                  Icons.shopping_cart,
+                  color: CustomColors.customSwatchColor,
                 ),
+              ),
             ),
           ),
           
@@ -131,7 +111,7 @@ class _HomeTabState extends State<HomeTab> {
             itemCount: appData.categories.length
           ),
         ),
-
+      
           //Grid
           Expanded(
             child: GridView.builder(
