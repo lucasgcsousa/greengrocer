@@ -1,7 +1,10 @@
-  import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+import 'package:get/utils.dart';
 import 'package:greengrocer/src/config/custom_colors.dart';
-import 'package:greengrocer/src/pages/auth/sing_in_screen.dart';
+import 'package:greengrocer/src/pages/auth/sign_in_screen.dart';
 import 'package:greengrocer/src/pages/common_widgets/app_name_widget.dart';
+import 'package:greengrocer/src/pages_routes/app_pages.dart' show PagesRoutes;
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -11,16 +14,13 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
+  @override
   void initState() {
     super.initState();
 
     Future.delayed(const Duration(seconds: 3), () {
-      Navigator.of(context).pushReplacement(MaterialPageRoute(builder:(c) {
-        return SingInScreen();
-      },));
+            Get.offNamed(PagesRoutes.signInRoute);
     });
-
   }
 
   @override
@@ -28,28 +28,26 @@ class _SplashScreenState extends State<SplashScreen> {
     return Material(
       child: Container(
         alignment: Alignment.center,
-        decoration:  BoxDecoration(
+        decoration: BoxDecoration(
           gradient: LinearGradient(
-            begin: Alignment.topLeft, end: Alignment.bottomRight,
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
             colors: [
               CustomColors.customSwatchColor,
               CustomColors.customSwatchColor.shade700,
-            ]
+            ],
           ),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const AppNameWidget(
-              greenTitleColor: Colors.white,
-              textSize: 40,
-            ),
-            
+            const AppNameWidget(greenTitleColor: Colors.white, textSize: 40),
+
             SizedBox(height: 20),
 
             CircularProgressIndicator(
               valueColor: AlwaysStoppedAnimation(Colors.white),
-            )
+            ),
           ],
         ),
       ),
