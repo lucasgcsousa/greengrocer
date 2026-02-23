@@ -73,7 +73,6 @@ class AuthController extends GetxController {
       },
       error: (message) {
         utilsServices.showToast(message: message, isError: true);
-        print(message);
       },
     );
   }
