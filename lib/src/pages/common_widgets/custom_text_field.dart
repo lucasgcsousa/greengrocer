@@ -10,10 +10,11 @@ class CustomTextField extends StatefulWidget {
   final bool readOnly;
   final String? Function(String?)? validator;
   final TextEditingController? controller;
+  final TextInputType? textInputType;
 
-   const CustomTextField({
-    super.key, 
-    required this.icon, 
+  const CustomTextField({
+    super.key,
+    required this.icon,
     required this.label,
     this.isSecret = false,
     this.inputFormatters,
@@ -21,22 +22,21 @@ class CustomTextField extends StatefulWidget {
     this.readOnly = false,
     this.validator,
     this.controller,
-    });
+    this.textInputType,
+  });
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
 }
 
 class _CustomTextFieldState extends State<CustomTextField> {
+  bool isObscure = false;
 
-   bool isObscure = false;
-
-   @override
+  @override
   void initState() {
     super.initState();
 
     isObscure = widget.isSecret;
-
   }
 
   @override
@@ -50,16 +50,19 @@ class _CustomTextFieldState extends State<CustomTextField> {
         inputFormatters: widget.inputFormatters,
         obscureText: isObscure,
         validator: widget.validator,
+        keyboardType: widget.textInputType,
         decoration: InputDecoration(
           prefixIcon: Icon(widget.icon),
-          suffixIcon: widget.isSecret 
+          suffixIcon: widget.isSecret
               ? IconButton(
                   onPressed: () {
                     setState(() {
                       isObscure = !isObscure;
                     });
                   },
-                  icon: Icon(isObscure ? Icons.visibility : Icons.visibility_off),
+                  icon: Icon(
+                    isObscure ? Icons.visibility : Icons.visibility_off,
+                  ),
                 )
               : null,
           labelText: widget.label,
